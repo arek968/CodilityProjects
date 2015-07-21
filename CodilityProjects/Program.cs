@@ -54,7 +54,19 @@ namespace CodilityProjects
             //result = Solution02.Solution1(2000);
 
             //ilość pierwiastków 3 stopnia
-            result = Solution02.Solution2(0, 0);
+            //result = Solution02.Solution2(1,2);
+
+
+            //njmniejszt wspólny element
+            //int[] A = new int[4] { 1, 3, 2, 1};
+            //int[] B = new int[5] { 4, 2, 5, 3, 2};
+            //result = Solution03.Solution3(A, B);
+
+            //bitcount
+            int[] A = new int[10] { 1, 2, 3, 6, 7, 11, 24, 33, 45, 46};
+
+            result = Solution03.Solution5(A);
+
 
             Console.WriteLine(result);
             Console.ReadLine();

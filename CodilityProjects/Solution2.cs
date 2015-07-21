@@ -80,5 +80,40 @@ namespace CodilityProjects
             return result;
         }
 
+        // { 5, 4, -3, 2, 0, 1, -1, 0, 2, -3, 4, -5 };
+        public static int solution8(int[] A)
+        {
+            if (A.Length == 0) return 0;
+            if (A.Length == 1) return 1;
+
+            int max_slice_length = 1;
+            int curr_slice_length = 1;
+
+            int prev_sign = Math.Sign(A[1]);
+            int prev_sign_2 = Math.Sign(A[0]);
+
+            if (Math.Sign(A[0]) != Math.Sign(A[1]))
+            {
+                curr_slice_length = 2;
+                max_slice_length = 2;
+            }
+
+
+            for (int i = 2; i < A.Length; i++)
+            {
+                int curr_sign = Math.Sign(A[i]);
+
+                if ((curr_sign != prev_sign && prev_sign != 0) || (prev_sign == 0 && curr_sign == prev_sign_2 && curr_sign != 0))
+                {
+                    curr_slice_length++;
+                    if (curr_slice_length > max_slice_length) max_slice_length = curr_slice_length;
+                }
+                else { curr_slice_length = 2; }
+                prev_sign_2 = prev_sign;
+                prev_sign = curr_sign;
+            }
+            return max_slice_length;
+        }
+
     }
 }
